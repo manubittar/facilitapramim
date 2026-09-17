@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import {
   BadgeCheck,
   CalendarDays,
@@ -22,42 +26,42 @@ const servicos = [
     titulo: "Documentos e certidões",
     texto:
       "Emissões disponíveis pela internet, segundas vias, PDFs e organização de documentos.",
-    preco: "A partir de R$ 10",
+    preco: "A partir de R$ 5,00",
   },
   {
     icon: CalendarDays,
     titulo: "Agendamentos",
     texto:
       "Ajudamos com agendamentos on-line quando o serviço não exige acesso pessoal protegido.",
-    preco: "A partir de R$ 10",
+    preco: "A partir de R$ 10,00",
   },
   {
     icon: ClipboardPenLine,
     titulo: "Formulários",
     texto:
       "Você fornece as informações e nós ajudamos no preenchimento e na organização.",
-    preco: "A partir de R$ 10",
+    preco: "A partir de R$ 10,00",
   },
   {
     icon: Search,
     titulo: "Pesquisas",
     texto:
       "Pesquisamos informações, procedimentos, documentos necessários, serviços e opções.",
-    preco: "A partir de R$ 5",
+    preco: "A partir de R$ 5,00",
   },
   {
     icon: ShoppingCart,
     titulo: "Compras on-line",
     texto:
       "Pesquisamos produtos e preços. Você aprova e realiza o pagamento diretamente ao vendedor.",
-    preco: "A partir de R$ 15",
+    preco: "A partir de R$ 15,00",
   },
   {
     icon: Plane,
     titulo: "Passagens",
     texto:
       "Pesquisamos opções, horários, preços e condições para facilitar sua escolha.",
-    preco: "A partir de R$ 10",
+    preco: "A partir de R$ 10,00",
   },
 ];
 
@@ -122,6 +126,37 @@ function Logo({ compacto = false }: { compacto?: boolean }) {
 }
 
 export default function Home() {
+   const [secaoAtiva, setSecaoAtiva] = useState("");
+
+ useEffect(() => {
+  const secoes = ["servicos", "como-funciona", "sobre", "seguranca"];
+
+  const atualizarSecao = () => {
+    const pontoDaTela = 140;
+
+    let secaoEncontrada = "";
+
+    for (const id of secoes) {
+      const elemento = document.getElementById(id);
+
+      if (!elemento) continue;
+
+      const posicao = elemento.getBoundingClientRect();
+
+      if (posicao.top <= pontoDaTela && posicao.bottom > pontoDaTela) {
+        secaoEncontrada = id;
+        break;
+      }
+    }
+
+    setSecaoAtiva(secaoEncontrada);
+  };
+
+  atualizarSecao();
+  window.addEventListener("scroll", atualizarSecao, { passive: true });
+
+  return () => window.removeEventListener("scroll", atualizarSecao);
+}, []);
   return (
     <main className="min-h-screen bg-white text-[#0B4A6F]">
       {/* CABEÇALHO */}
@@ -131,23 +166,27 @@ export default function Home() {
             <Logo compacto />
           </a>
 
-          <nav className="hidden items-center gap-7 text-sm font-bold lg:flex">
-            <a href="#servicos" className="transition hover:text-[#4CAF69]">
-              Serviços
-            </a>
-            <a
-              href="#como-funciona"
-              className="transition hover:text-[#4CAF69]"
-            >
-              Como funciona
-            </a>
-            <a href="#sobre" className="transition hover:text-[#4CAF69]">
-              Sobre nós
-            </a>
-            <a href="#seguranca" className="transition hover:text-[#4CAF69]">
-              Segurança
-            </a>
-          </nav>
+          
+          <nav className="hidden items-center gap-2 text-sm font-bold lg:flex">
+  {[
+    ["servicos", "Serviços"],
+    ["como-funciona", "Como funciona"],
+    ["sobre", "Sobre nós"],
+    ["seguranca", "Segurança"],
+  ].map(([id, nome]) => (
+    <a
+      key={id}
+      href={`#${id}`}
+      className={`rounded-full px-4 py-2 transition ${
+        secaoAtiva === id
+          ? "bg-[#E8F7ED] text-[#287C45]"
+          : "text-[#0B4A6F] hover:bg-slate-50 hover:text-[#4CAF69]"
+      }`}
+    >
+      {nome}
+    </a>
+  ))}
+</nav>
 
           <a
             href="#contato"
@@ -302,7 +341,7 @@ export default function Home() {
           </div>
 
           <div className="font-extrabold text-[#287C45]">
-            A partir de R$ 30
+            A partir de R$ 30,00
           </div>
         </div>
 
