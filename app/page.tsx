@@ -19,72 +19,80 @@ import {
   ShoppingCart,
   ClipboardPenLine,
 } from "lucide-react";
-
 const servicos = [
   {
     icon: FileCheck2,
-    titulo: "Documentos e certidões",
+    titulo: "Certidões e Registros On-line",
     texto:
-      "Emissões disponíveis pela internet, segundas vias, PDFs e organização de documentos.",
+      "Ajudamos na solicitação de certidões e em serviços disponíveis nos canais oficiais de cartórios e registros.",
+    preco: "Consulte o valor do serviço",
+  },
+  {
+    icon: FileText,
+    titulo: "Documentos e Arquivos",
+    texto:
+      "Juntamos, separamos, convertemos, reduzimos e organizamos PDFs, documentos e arquivos.",
+    preco: "A partir de R$ 5,00",
+  },
+  {
+    icon: ClipboardPenLine,
+    titulo: "Formulários e Cadastros",
+    texto:
+      "Ajudamos no preenchimento e na organização das informações quando o serviço não exige senha, assinatura ou acesso pessoal protegido.",
+    preco: "A partir de R$ 10,00",
+  },
+  {
+    icon: FileCheck2,
+    titulo: "Emissões e Consultas On-line",
+    texto:
+      "Ajudamos com emissões e consultas disponíveis em canais oficiais, quando não exigem senha ou acesso pessoal protegido.",
+    preco: "A partir de R$ 5,00",
+  },
+  {
+    icon: Search,
+    titulo: "Pesquisas e Informações",
+    texto:
+      "Pesquisamos procedimentos, documentos necessários, canais oficiais, endereços, contatos e outras informações.",
     preco: "A partir de R$ 5,00",
   },
   {
     icon: CalendarDays,
     titulo: "Agendamentos",
     texto:
-      "Ajudamos com agendamentos on-line quando o serviço não exige acesso pessoal protegido.",
-    preco: "A partir de R$ 10,00",
-  },
-  {
-    icon: ClipboardPenLine,
-    titulo: "Formulários",
-    texto:
-      "Você fornece as informações e nós ajudamos no preenchimento e na organização.",
-    preco: "A partir de R$ 10,00",
-  },
-  {
-    icon: Search,
-    titulo: "Pesquisas",
-    texto:
-      "Pesquisamos informações, procedimentos, documentos necessários, serviços e opções.",
-    preco: "A partir de R$ 5,00",
-  },
-  {
-    icon: ShoppingCart,
-    titulo: "Compras on-line",
-    texto:
-      "Pesquisamos produtos e preços. Você aprova e realiza o pagamento diretamente ao vendedor.",
-    preco: "A partir de R$ 15,00",
-  },
-  {
-    icon: Plane,
-    titulo: "Passagens",
-    texto:
-      "Pesquisamos opções, horários, preços e condições para facilitar sua escolha.",
+      "Ajudamos com agendamentos on-line quando o serviço não exige senha, autenticação ou manifestação pessoal.",
     preco: "A partir de R$ 10,00",
   },
 ];
-
 const etapas = [
   {
     numero: "1",
     titulo: "Conte o que precisa",
-    texto: "Mande uma mensagem pelo WhatsApp e explique sua necessidade.",
+    texto: "Mande uma mensagem pelo WhatsApp e explique o que você precisa.",
   },
   {
     numero: "2",
-    titulo: "Receba o valor e o prazo",
-    texto: "Analisamos o pedido e informamos quanto custa e quando ficará pronto.",
+    titulo: "Analisamos seu pedido",
+    texto: "Verificamos se podemos realizar o serviço e quais informações serão necessárias.",
   },
   {
     numero: "3",
-    titulo: "Você decide",
-    texto: "Só começamos depois da sua confirmação.",
+    titulo: "Você recebe o valor e o prazo",
+    texto: "Antes de começar, informamos o preço, o prazo e o que está incluído.",
   },
   {
     numero: "4",
+    titulo: "Você aprova e realiza o pagamento",
+    texto: "O serviço começa após a confirmação do pagamento e o recebimento das informações necessárias.",
+  },
+  {
+    numero: "5",
     titulo: "Nós facilitamos",
-    texto: "Realizamos o serviço combinado e entregamos dentro do prazo informado.",
+    texto: "Realizamos o serviço conforme o combinado e dentro do prazo informado.",
+  },
+  {
+    numero: "6",
+    titulo: "Você recebe a entrega",
+    texto: "Nos documentos personalizados, primeiro enviamos uma prova para conferência. Após a conferência e eventuais pequenos ajustes incluídos, enviamos o PDF final.",
   },
 ];
 
@@ -222,9 +230,10 @@ export default function Home() {
             </p>
 
             <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
-              Documentos, formulários, pesquisas, agendamentos e pequenas
-              tarefas pela internet, com atendimento humano e sem complicação.
-            </p>
+  Documentos, certidões, registros on-line, formulários, pesquisas,
+  consultas e outras tarefas pela internet, com atendimento humano,
+  simples e acessível.
+</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
@@ -330,20 +339,35 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-2xl font-extrabold">
-              Documentos preparados para você
-            </p>
-            <p className="mt-2 max-w-3xl leading-7 text-slate-600">
-              Requerimentos, solicitações, cartas, declarações e outros
-              documentos administrativos preparados de forma clara e
-              organizada.
-            </p>
-          </div>
+  <p className="text-2xl font-extrabold">
+    Documentos Administrativos Personalizados
+  </p>
 
-          <div className="font-extrabold text-[#287C45]">
-            A partir de R$ 30,00
-          </div>
-        </div>
+  <p className="mt-2 max-w-3xl leading-7 text-slate-600">
+    Requerimentos administrativos, notificações, ofícios, cartas formais,
+    solicitações, declarações e outros documentos administrativos preparados
+    de forma clara, organizada e personalizada.
+  </p>
+
+  <div className="mt-5 rounded-2xl border border-[#A7D8F0] bg-[#F6FAFC] p-5">
+    <p className="font-extrabold text-[#0B4A6F]">
+      🔒 Segurança também faz parte do nosso serviço
+    </p>
+
+    <p className="mt-2 leading-7 text-slate-600">
+  Para proteger nossos clientes e terceiros contra fraudes e uso indevido,
+  os documentos personalizados que contenham assinatura são emitidos com
+  aviso de segurança no próprio documento. Por segurança, documentos personalizados que contenham assinatura não
+deverão ser utilizados ou aceitos sem o reconhecimento da firma do signatário.
+</p>
+  </div>
+
+  </div>
+
+<div className="font-extrabold text-[#287C45]">
+  A partir de R$ 30,00
+</div>
+</div>
 
         <div className="mt-6 rounded-3xl bg-[#FFF7E3] p-8 text-center">
           <h3 className="text-2xl font-extrabold">
@@ -366,7 +390,7 @@ export default function Home() {
             <h2 className="mt-3 text-4xl font-extrabold">Como funciona?</h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {etapas.map((etapa) => (
               <div
                 key={etapa.numero}
@@ -383,7 +407,7 @@ export default function Home() {
 
           <p className="mt-8 text-center text-slate-500">
             O prazo começa após o recebimento das informações necessárias e a
-            confirmação do serviço.
+confirmação do pagamento.
           </p>
         </div>
       </section>
@@ -429,11 +453,11 @@ export default function Home() {
                 <strong className="text-[#0B4A6F]">Facilita Pra Mim</strong>.
               </p>
 
-              <p>
-                Unimos mais de 20 anos de experiência em rotinas administrativas
-                e documentais à praticidade das ferramentas digitais para
-                oferecer uma ajuda simples, acessível e de confiança.
-              </p>
+             <p>
+  Unimos mais de 20 anos de experiência em rotinas administrativas
+  e documentais à praticidade das ferramentas digitais para
+  oferecer uma ajuda simples, acessível, segura e de confiança.
+</p>
 
               <p className="font-bold text-[#0B4A6F]">
                 Você não precisa saber qual site acessar ou qual serviço pedir.
@@ -466,11 +490,11 @@ export default function Home() {
 
           <div className="space-y-4">
             {[
-              "Não pedimos sua senha bancária.",
-              "Não pedimos sua senha do GOV.BR.",
-              "Não solicitamos dados completos do seu cartão.",
-              "Reconhecimento facial, códigos e assinaturas pessoais são feitos por você.",
-              "Em compras, você paga diretamente ao fornecedor.",
+  "Nunca pedimos senhas, códigos de confirmação ou acesso à sua conta bancária.",
+  "Nunca acessamos sua conta GOV.BR ou utilizamos sua assinatura por você.",
+  "Solicitamos apenas os dados e documentos necessários para realizar o serviço.",
+  "Documentos personalizados possuem medidas de segurança contra uso indevido.",
+  "Custas e taxas de cartórios ou órgãos são pagas diretamente ao prestador oficial.",
             ].map((item) => (
               <div
                 key={item}
